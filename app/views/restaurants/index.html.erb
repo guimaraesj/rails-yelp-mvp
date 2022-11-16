@@ -1,0 +1,9 @@
+<%# GET "restaurants" %>
+<h1>Restaurants </h1>
+<%# no index nunca se usa as instances. Aqui só estamos a iterar sobre cada um dos elementos do array. %>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <%= render "list", restaurants: @restaurants %>
+</nav>
+
+<%= link_to "New Restaurant", new_restaurant_path %>

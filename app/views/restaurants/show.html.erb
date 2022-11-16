@@ -1,0 +1,26 @@
+<%# GET "restaurants/38" %>
+<h1>Restaurant details</h1>
+
+<%= render @restaurant %>
+
+<h3>Restaurant Reviews</h3>
+<% @restaurant.reviews.each do |review| %>
+  <li>
+  <%= review.content %>
+  <%= review.rating %>
+  </li>
+<% end %>
+
+<%= link_to "Back to restaurants", restaurants_path %>
+<%# <%= link_to "New Review", new_restaurant_review_path(@restaurant) REFACTORED VERSION: DEIXOU DE EXISTIR %>
+
+<%# here the simpleform link is [@restaurant, @review] %>
+<%= simple_form_for [@restaurant, @review] do |f| %> <%#PARA A REFACTORED VERSION TENHO DE REDEFINIR A REVIEW %>
+  <div class="form-inputs">
+    <%= f.input :rating, required: true %>
+    <%= f.input :content, required: true %>
+  </div>
+  <div class="form-actions btn btn-primary">
+    <%= f.button :submit %>
+  </div>
+<% end %>
